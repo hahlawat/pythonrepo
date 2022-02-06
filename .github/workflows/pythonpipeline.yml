@@ -3,17 +3,16 @@ on: push
 jobs:
   test:
      runs-on: ubuntu-latest
-     steps:
-       - name: check out the repo
-         uses: actions/checkout@v2
-         run: python hello.py
+     steps:  
+        - uses: actions/checkout@v2
+        - run: python hello.py
          
-   build:
+  build:
      runs-on: ubuntu-latest     
      steps:
-       - name:depends on job1
-         uses: actions/checkout@v2
-         uses: actions/upload-artifact@v2
+   
+       - uses: actions/checkout@v2
+       - uses: actions/upload-artifact@v2
          with:
             name: hello
             path: .
